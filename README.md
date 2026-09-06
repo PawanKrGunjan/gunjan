@@ -2,6 +2,8 @@
 
 A small personal writing site for [thegunjan.in](https://thegunjan.in), built as a static page for GitHub Pages.
 
+For the repeatable local, deployment, live-site, and DNS checks, see [TESTING.md](TESTING.md).
+
 ## Pages
 
 - `index.html` — Home with the featured post
