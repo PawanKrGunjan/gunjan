@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A structural step-by-step developer blueprint on deploying modern static sites cleanly to domain URLs." />
+    <title>Guide: Easiest Hosting Framework — Gunjan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Embedded Custom Document Layout Overrides */
+      .article-content {
+        padding: 40px 0 96px;
+      }
+      .article-content p {
+        font-size: 14px;
+        line-height: 1.8;
+        color: var(--text);
+        margin-bottom: 24px;
+      }
+      .article-content h2 {
+        font-family: "Libre Baskerville", serif;
+        font-size: 24px;
+        margin: 48px 0 20px;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 8px;
+      }
+      .code-terminal-block {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        padding: 18px 24px;
+        font-family: "DM Mono", monospace;
+        font-size: 12px;
+        color: var(--green);
+        overflow-x: auto;
+        margin: 24px 0;
+      }
+      .step-marker {
+        font-family: "DM Mono", monospace;
+        color: var(--green);
+        font-size: 12px;
+        font-weight: 500;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="index.html" aria-label="Gunjan home">
+        <span class="logo-g">G</span>unjan<span>_</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="blogs.html">Blogs</a>
+        <a href="about.html">About</a>
+      </nav>
+    </header>
+
+    <main class="page-shell">
+      <article class="article-content">
+        <header class="page-intro" style="padding-top: 56px; border-bottom: none;">
+          <p class="eyebrow">/ / engineering handbooks / webops</p>
+          <h1 style="font-size: clamp(32px, 5vw, 54px); line-height: 1.1;">The Absolute Easiest Way to Host a Page on a Custom Domain</h1>
+          <div class="post-meta" style="justify-content: flex-start; gap: 24px; margin-top: 16px;">
+            <span>Published: Sep 06, 2026</span>
+            <span>·</span>
+            <span>Reading Time: 5 min read</span>
+          </div>
+        </header>
+
+        <p>Deploying public web assets to a dedicated custom URL has historically required setting up complex virtual private servers, dealing with firewall configs, or managing server clusters. Today, modern global content delivery networks (CDNs) have compressed that process down to a few actions.</p>
+        <p>The standard choice for speed, performance, and complete security isolation is leveraging <strong>Vercel</strong> or <strong>Netlify</strong> alongside a clean registrar connection. Below is the direct blueprint to getting an engine architecture up and live.</p>
+
+        <h2>1. Architecture Prerequisites</h2>
+        <p>Before launching your layout codebase to the edge server networks, confirm your root workspace folder configuration looks exactly like this:</p>
+        
+        <div class="code-terminal-block">
+my-web-project/
+├── index.html         # Your home screen layout
+├── blogs.html         # Your blog stream framework
+├── styles.css         # All unified token styles
+└── profile.png        # Your crisp headshot asset</div>
+
+        <h2>2. Step-by-Step Deployment Blueprint</h2>
+        
+        <span class="step-marker">Step 01 / Push to Cloud Version Control</span>
+        <p>Create a repository securely inside your GitHub account profile interface. Initialize git locally within your directory path via your local terminal client and synchronize with the upstream master block:</p>
+        <div class="code-terminal-block">
+git init
+git add .
+git commit -m "feat: infrastructure deployment architecture initialization"
+git remote add origin https://github.com
+git branch -M main
+git push -u origin main</div>
+
+        <span class="step-marker">Step 02 / Bind to Global Deployment Network</span>
+        <p>Navigate directly to the <a href="https://vercel.com" target="_blank" style="color: var(--green); text-decoration: underline;">Vercel Platform Matrix</a>. Authenticate directly via your developer profile account through your secure GitHub login profile token. Click <strong>"Add New Project"</strong>, then select your site repository folder from the drop-down import window.</p>
+        <p>Leave the compilation configuration output fields blank (since you are serving optimized vanilla raw source HTML/CSS natively), and select the <strong>"Deploy"</strong> control button.</p>
+
+        <span class="step-marker">Step 03 / Point Custom Domains Securely</span>
+        <p>Once deployed, your engine immediately generates a secure edge URL (e.g., <code>project.vercel.app</code>). To secure your premium global URL structure (e.g., <code>thegunjan.in</code>), navigate to your project dashboard under <strong>Settings → Domains</strong>.</p>
+        <p>Input your target premium domain into the form block field. The platform engine automatically reads your system records status metrics and displays the required explicit DNS modifications:</p>
+
+        <div class="code-terminal-block">
+Type:  A
+Name:  @
+Value: 76.76.21.21  (Global Fast Vercel Edge Server)</div>
+
+        <p>Input this record configuration parameter into your domain registrar zone configuration manager panel dashboard (such as Cloudflare, Namecheap, or GoDaddy). The structural global infrastructure network handles SSL certificate generation immediately at absolute zero auxiliary cost.</p>
+
+        <h2>Summary Evaluation</h2>
+        <p>Your web application portfolio is now structurally bulletproof, fully active at the network edge, protected by automated security protocols, and mapped directly onto your sleek custom branding terminal.</p>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <span>© 2026 <span class="logo-g">G</span>unjan</span>
+      <a href="mailto:hello@thegunjan.in">hello@thegunjan.in</a>
+    </footer>
+  </body>
+</html>

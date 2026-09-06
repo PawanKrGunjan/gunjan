@@ -12,6 +12,12 @@
 
 html { scroll-behavior: smooth; }
 
+/* Global Bold Green G Styling */
+.logo-g {
+  color: var(--green);
+  font-weight: 700;
+}
+
 body {
   margin: 0;
   color: var(--text);
@@ -25,6 +31,7 @@ body {
 
 a { color: inherit; text-decoration: none; }
 
+/* Structural Components */
 .site-header {
   align-items: center;
   border-bottom: 1px solid var(--line);
@@ -40,8 +47,6 @@ a { color: inherit; text-decoration: none; }
   font-weight: 700;
 }
 
-.wordmark span, .cursor { color: var(--green); }
-
 nav { display: flex; gap: 28px; }
 nav a { color: var(--muted); font-size: 11px; transition: color 180ms ease; }
 nav a.active, nav a:hover, nav a:focus-visible { color: var(--text); }
@@ -53,17 +58,32 @@ nav a.active, nav a:hover, nav a:focus-visible { color: var(--text); }
 h1, h2, h3, p { margin-top: 0; }
 h1 {
   font-family: "Libre Baskerville", serif;
-  font-size: clamp(62px, 10vw, 100px);
-  letter-spacing: -4px;
+  font-size: clamp(48px, 7vw, 76px);
+  letter-spacing: -3px;
   line-height: .98;
   margin: 0 0 16px;
 }
 
-.cursor { display: inline-block; height: .6em; margin-left: 11px; vertical-align: 7%; width: 15px; }
+/* Code Terminal Accent Elements */
+.cursor { 
+  display: inline-block; 
+  height: .6em; 
+  margin-left: 11px; 
+  vertical-align: 7%; 
+  width: 15px; 
+  background-color: var(--green);
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
 .eyebrow, .tag { color: var(--green); font-size: 12px; letter-spacing: .04em; }
 .eyebrow { margin: 0 0 12px; }
 .intro { color: var(--muted); font-size: 14px; line-height: 1.6; margin-bottom: 34px; }
 
+/* Grid Cards & Row Formats */
 .featured-post { background: var(--surface); border: 1px solid var(--line); display: block; padding: 26px 27px 24px; transition: border-color 180ms ease, transform 180ms ease; }
 .featured-post:hover { border-color: #3a413d; transform: translateY(-2px); }
 .post-topline, .post-meta { align-items: center; display: flex; justify-content: space-between; }
@@ -87,25 +107,49 @@ h1 {
 .post-row h3 { font-family: "Libre Baskerville", serif; font-size: 18px; margin-bottom: 8px; }
 .post-summary { color: var(--muted); font-size: 12px; margin: 0; }
 
+/* Profile Page Adaptive Split Grid layout */
+.about-profile-split {
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: 40px;
+  align-items: start;
+  margin-bottom: 24px;
+}
+
+.profile-container {
+  position: relative;
+}
+
+.profile-frame {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.4);
+}
+
+/* Standard Section Layouts */
 .about { border-top: 1px solid var(--line); padding: 68px 0 80px; }
 .about h2 { font-family: "Libre Baskerville", serif; font-size: 34px; line-height: 1.25; margin-bottom: 16px; }
 .about > p:last-child { color: var(--muted); font-size: 13px; max-width: 450px; }
 .text-link { color: var(--green); display: inline-block; font-size: 11px; margin-top: 20px; }
 .text-link span { display: inline-block; margin-left: 5px; transition: transform 180ms ease; }
 .text-link:hover span { transform: translateX(4px); }
+
 .site-footer { border-top: 1px solid var(--line); color: var(--muted); display: flex; font-size: 11px; justify-content: space-between; margin-top: 0; padding: 22px max(28px, calc((100vw - var(--max-width)) / 2)); }
 .site-footer a:hover { color: var(--green); }
 
 .page-shell { margin: 0 auto; max-width: var(--max-width); }
 .page-intro { border-bottom: 1px solid var(--line); padding: 78px 0 56px; }
-.page-intro h1 { font-size: clamp(48px, 8vw, 76px); margin-bottom: 22px; }
-.page-intro > p:last-child { color: var(--muted); font-size: 14px; max-width: 550px; }
 .blog-list { padding: 40px 0 88px; }
 .blog-card { background: var(--surface); border: 1px solid var(--line); display: block; margin-bottom: 16px; padding: 25px 27px 23px; transition: border-color 180ms ease, transform 180ms ease; }
 .blog-card:hover, .blog-card:focus-visible { border-color: #3a413d; transform: translateX(4px); }
 .blog-card h2 { font-family: "Libre Baskerville", serif; font-size: 21px; line-height: 1.35; margin: 17px 0 10px; }
 .blog-card > p { color: var(--muted); font-size: 12px; line-height: 1.7; margin-bottom: 18px; max-width: 630px; }
 .featured-card { border-left: 2px solid var(--green); }
+
 .about-page { padding-bottom: 20px; }
 .about-grid, .contact-strip { border-bottom: 1px solid var(--line); display: grid; gap: 50px; grid-template-columns: 1fr 1.3fr; padding: 68px 0; }
 .section-label { color: var(--green); font-size: 11px; margin-bottom: 20px; }
@@ -115,14 +159,26 @@ h1 {
 .contact-strip { align-items: end; border-bottom: 0; grid-template-columns: 1fr auto; padding-bottom: 88px; }
 .contact-strip .text-link { margin: 0 0 5px; }
 
+/* Responsive Media Queries */
 @media (max-width: 790px) {
   .site-header, .site-footer { padding-left: 24px; padding-right: 24px; }
   .hero-inner, .posts, .about, .page-shell { padding-left: 24px; padding-right: 24px; }
   .hero-inner { padding-top: 58px; }
 }
 
+@media (max-width: 640px) {
+  .about-profile-split {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .profile-container {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+}
+
 @media (max-width: 560px) {
-  h1 { font-size: 60px; letter-spacing: -3px; }
+  h1 { font-size: 44px; letter-spacing: -2px; }
   .cursor { width: 10px; }
   .desktop-break { display: none; }
   .intro { font-size: 12px; }
@@ -135,10 +191,84 @@ h1 {
   .post-row > .read-link { grid-column: 2; grid-row: 2; }
   .about h2 { font-size: 28px; }
   .page-intro { padding-top: 58px; }
-  .page-intro h1 { font-size: 48px; letter-spacing: -3px; }
+  .page-intro h1 { font-size: 38px; letter-spacing: -2px; }
   .blog-card { padding: 20px; }
   .blog-card h2 { font-size: 19px; }
   .about-grid, .contact-strip { gap: 30px; grid-template-columns: 1fr; padding: 52px 0; }
   .contact-strip { align-items: start; }
   .contact-strip .text-link { margin: 0; }
+}
+
+/* ==========================================================================
+   ADDITIONAL PROFESSIONAL PORTFOLIO LAYOUT EXTENSIONS
+   ========================================================================== */
+
+/* Enhanced Hero Layout Modifications */
+.hero-inner {
+  padding: 96px 0 72px; /* Increased editorial breathing room */
+}
+
+/* Developer Information Grid/Dashboard */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 32px 0 48px;
+}
+
+.dashboard-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.dashboard-card h3 {
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 12px;
+  letter-spacing: 0.05em;
+}
+
+/* Tooling / Tech Stack Tags List */
+.tech-stack-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tech-stack-list li {
+  font-size: 11px;
+  color: var(--muted);
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--line);
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+
+/* System Monitor Bar Metrics */
+.sys-metric {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.sys-metric span:last-child {
+  color: var(--text);
+}
+
+/* Responsive Overrides */
+@media (max-width: 560px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
 }
