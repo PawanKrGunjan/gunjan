@@ -2,6 +2,12 @@
 
 A small personal writing site for [thegunjan.in](https://thegunjan.in), built as a static page for GitHub Pages.
 
+## Pages
+
+- `index.html` — Home with the featured post
+- `blogs.html` — Blog index with all posts
+- `about.html` — About Gunjan and contact details
+
 ## Publish with GitHub Pages
 
 1. Push this repository to GitHub.
