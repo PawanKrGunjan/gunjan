@@ -5,7 +5,7 @@
   --text: #f0efeb;
   --muted: #8e9590;
   --green: #00d879;
-  --max-width: 1400px; /* Expanded canvas layout for spacious laptop viewports */
+  --max-width: 1200px; /* Expanded canvas layout for spacious laptop viewports */
 }
 
 * { box-sizing: border-box; }
