@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Investment Agent project by Pawan Kumar Gunjan — an AI stock research agent built with LangGraph, NSE data integration, and structured report generation." />
+    <title>Investment Agent — Pawan Kumar Gunjan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="index.html" aria-label="Gunjan home">
+        <span class="logo-g">G</span>unjan<span>_</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="blogs.html">Projects</a>
+        <a href="about.html">About</a>
+      </nav>
+    </header>
+
+    <main class="page-shell project-page">
+      <section class="page-intro" aria-labelledby="project-title">
+        <p class="eyebrow">/ / project</p>
+        <h1 id="project-title">Investment Agent<span class="cursor" aria-hidden="true"></span></h1>
+        <p>An AI stock research agent that turns natural-language investment questions into structured, actionable insights using NSE-linked market data, news retrieval, and agent-based orchestration.</p>
+
+        <div class="project-meta">
+          <div class="meta-item">
+            <span class="meta-label">Focus</span>
+            <span>Agentic AI • Stock research</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Tools</span>
+            <span>LangGraph • DuckDuckGoSearch • NSE data</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Repo</span>
+            <a href="https://github.com/PawanKrGunjan/GenerativeAI/tree/main/InvestmentAgent" target="_blank" rel="noopener">View on GitHub</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-layout">
+        <article class="project-card project-main">
+          <p class="section-label">01 / problem</p>
+          <h2>Researching stocks from everyday language</h2>
+          <p>The core challenge in this project was translating ordinary investor questions into an AI workflow that could resolve the right NSE company, fetch the right market data, and summarize meaningful signals from recent news.</p>
+          <p>Instead of forcing a user to know exact ticker names or navigate multiple sources manually, the agent handles the intent mapping and retrieval process automatically.</p>
+        </article>
+
+        <article class="project-card">
+          <p class="section-label">02 / approach</p>
+          <h3>Symptom-to-signal pipeline</h3>
+          <ul>
+            <li>Used natural-language understanding to identify the target company or symbol from a query</li>
+            <li>Applied deterministic NSE symbol resolution with confidence checks and ambiguity handling</li>
+            <li>Fetched live quotes and recent news through retrieval layers designed to support structured results</li>
+            <li>Combined the findings into human-readable summaries and machine-friendly JSON output</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="project-grid">
+        <article class="project-card">
+          <p class="section-label">03 / architecture</p>
+          <h3>LangGraph state orchestration</h3>
+          <p>The implementation is organized around a LangGraph StateGraph, which makes the workflow transparent and reusable. Each stage is responsible for a specific step in the pipeline:</p>
+          <ul>
+            <li>Resolve symbol or company name from user intent</li>
+            <li>Fetch quote data from NSE-backed sources</li>
+            <li>Retrieve recent news and structured snippets</li>
+            <li>Generate a final report with both summary and structured output</li>
+          </ul>
+        </article>
+
+        <article class="project-card">
+          <p class="section-label">04 / results</p>
+          <h3>Practical AI workflow</h3>
+          <p>The project demonstrates how an agent can move from raw prompt input to a useful financial research response. It also includes state persistence using SqliteSaver, which makes replay and debugging much easier during iterative development.</p>
+          <p>In practice, this makes the agent feel like a research assistant rather than a simple chatbot.</p>
+          <div class="project-figure">
+            <img src="image/investmentagent_graphs/investment_agent_optimized.png" alt="Investment Agent architecture diagram" />
+          </div>
+        </article>
+      </section>
+
+      <div class="project-cta">
+        <a class="primary-action" href="https://github.com/PawanKrGunjan/GenerativeAI/tree/main/InvestmentAgent" target="_blank" rel="noopener">Open GitHub Project</a>
+        <a class="secondary-action" href="blogs.html">Back to projects</a>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <span>© 2026 <span class="logo-g">G</span>unjan</span>
+      <div class="site-footer-links" aria-label="Social links">
+        <a class="social-link site-footer-link" href="https://www.linkedin.com/in/pawankrgunjan/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <img class="social-logo" src="image/logo/LI-Logo.png" alt="LinkedIn logo" />
+        </a>
+        <a class="social-link site-footer-link" href="https://huggingface.co/PawanKrGunjan" target="_blank" rel="noopener" aria-label="Hugging Face">
+          <img class="social-logo" src="image/logo/huggingface/hf-logo.png" alt="Hugging Face logo" />
+        </a>
+        <a class="social-link site-footer-link" href="https://github.com/PawanKrGunjan" target="_blank" rel="noopener" aria-label="GitHub">
+          <img class="social-logo" src="image/logo/GitHub_Logos/PNG/GitHub_Invertocat_White.png" alt="GitHub logo" />
+        </a>
+        <a class="social-link site-footer-link" href="https://www.kaggle.com/pawankumargunjan" target="_blank" rel="noopener" aria-label="Kaggle">
+          <img class="social-logo" src="image/logo/kaggle/kaggle-logo-transparent-300.png" alt="Kaggle logo" />
+        </a>
+        <a class="social-link site-footer-link" href="https://x.com/" target="_blank" rel="noopener" aria-label="Twitter">
+          <img class="social-logo" src="image/logo/x/logo-white.png" alt="Twitter logo" />
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>

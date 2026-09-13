@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ANPR project by Pawan Kumar Gunjan — a technical blog on Automatic Number Plate Recognition, YOLO detection, TrOCR, FastAPI, and real-time camera processing." />
+    <title>ANPR System Design — Pawan Kumar Gunjan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="index.html" aria-label="Gunjan home">
+        <span class="logo-g">G</span>unjan<span>_</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="blogs.html">Projects</a>
+        <a href="about.html">About</a>
+      </nav>
+    </header>
+
+    <main class="page-shell project-page">
+      <section class="page-intro" aria-labelledby="project-title">
+        <p class="eyebrow">/ / technical blog</p>
+        <h1 id="project-title">ANPR System Design<span class="cursor" aria-hidden="true"></span></h1>
+        <p>This project is a real-time Automatic Number Plate Recognition system designed for lane-based monitoring, camera stream ingestion, OCR-powered plate reading, and database-backed event logging. It combines YOLO-based vehicle detection, OCR inference, FastAPI serving, and configurable lane pipelines.</p>
+
+        <div class="project-meta">
+          <div class="meta-item">
+            <span class="meta-label">Focus</span>
+            <span>Computer Vision • OCR • Real-time systems</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Stack</span>
+            <span>YOLO • TrOCR • FastAPI • MySQL • MSSQL</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Outcome</span>
+            <span>Lane-aware real-time recognition with duplicate suppression and structured event logging</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-layout">
+        <article class="project-card project-main">
+          <p class="section-label">01 / why this system exists</p>
+          <h2>From live camera feeds to recognized plate text</h2>
+          <p>The ANPR workflow starts with an RTSP stream or configured camera input and ends with a recognized plate number, a saved crop, and a structured database event. The important part is that the system is not just performing OCR in isolation — it also handles lane configuration, duplicate suppression, image annotation, and persistence.</p>
+          <p>That makes it useful for traffic monitoring, toll operations, access control, and real-time vehicle tracking workflows.</p>
+        </article>
+
+        <article class="project-card">
+          <p class="section-label">02 / system flow</p>
+          <h3>End-to-end processing pipeline</h3>
+          <ul>
+            <li>Load lane configuration from YAML and validate stream parameters</li>
+            <li>Start a long-running worker to collect frames from the RTSP input</li>
+            <li>Run YOLO object detection to identify the vehicle and estimate plate area</li>
+            <li>Crop the plate region and pass it through TrOCR for text recognition</li>
+            <li>Suppress duplicates with similarity checks and save annotated outputs</li>
+            <li>Persist related metadata to MySQL/MSSQL data stores</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="project-grid">
+        <article class="project-card">
+          <p class="section-label">03 / core implementation</p>
+          <h3>Key code structure</h3>
+          <p>The project separates the recognition logic from the API server and stream orchestration, which makes the design easier to reason about and extend.</p>
+          <pre class="code-block"><code># Recognizer is initialized with configured media paths,
+# model references, and validation settings.
+recognizer = initialize_recognition_service(
+    media_root=CONFIGURED_MEDIA_PATH,
+    detection_model=SELECTED_MODEL,
+    lifecycle_settings=VALIDATION_RULES
+)
+</code></pre>
+          <p>This initialization is performed in the service layer, while the underlying OCR and detection logic remains internal to the project.</p>
+        </article>
+
+        <article class="project-card">
+          <p class="section-label">04 / model pipeline</p>
+          <h3>YOLO + TrOCR</h3>
+          <p>The recognition pipeline uses YOLO for the location stage and a TrOCR-based model for text extraction. The code loads the OCR model with the Hugging Face checkpoint and runs the OCR pipeline over the cropped plate image.</p>
+          <pre class="code-block"><code># Model loading is handled internally for the production deployment.
+# Only a high-level process is shown here.
+load_detection_model()
+convert_if_needed_for_runtime()
+prepare_ocr_pipeline()
+
+# Detection → crop → recognition → post-processing
+recognize_plate_from_frame(frame)</code></pre>
+        </article>
+      </section>
+
+      <section class="project-grid">
+        <article class="project-card project-main">
+          <p class="section-label">05 / duplicate handling</p>
+          <h2>Making recognition stable in live feeds</h2>
+          <p>In a live camera setup, the same vehicle can appear across multiple frames. The system avoids noisy duplicates by comparing the previous frame with the current frame and by checking plate similarity across a short time window.</p>
+          <pre class="code-block"><code># Duplicate suppression works by comparing recent detections
+# within a short time window and rejecting near-identical repeats.
+recent_match = compare_with_recent_events(current_plate)
+
+if recent_match and within_time_threshold():
+    skip_duplicate_event()
+else:
+    process_event()
+</code></pre>
+          <p>This is a practical engineering choice: it reduces duplicate writes while preserving real events for different vehicles.</p>
+        </article>
+      </section>
+
+      <section class="project-grid">
+        <article class="project-card">
+          <p class="section-label">06 / api + stream orchestration</p>
+          <h3>FastAPI service structure</h3>
+          <p>The FastAPI app is responsible for dashboard rendering, configuration APIs, and starting per-lane camera workers. It also serves static assets and exposes endpoints for lane configuration updates and RTSP stream launch.</p>
+          <pre class="code-block"><code># Production endpoints manage lifecycle, stream setup,
+# and configuration updates for each lane.
+start_lane_session(config)
+validate_source_parameters()
+run_background_worker()
+update_runtime_state()
+</code></pre>
+        </article>
+
+        <article class="project-card">
+          <p class="section-label">07 / persistence</p>
+          <h3>Database integration and media output</h3>
+          <p>The system writes the recognized result to a structured image path, stores metadata, and integrates with database backends for tracking. In the captured codebase, both MySQL and MSSQL managers are present, allowing deployment across different environments.</p>
+        </article>
+      </section>
+
+      <section class="project-grid">
+        <article class="project-card project-main">
+          <p class="section-label">08 / deployment notes</p>
+          <h2>Production considerations</h2>
+          <p>From a deployment standpoint, the project includes license validation, threaded worker management, YAML-driven lane configuration, and persistent logging. It is designed around the reality that production camera systems need lifecycle control, safe configuration updates, and operational visibility.</p>
+          <ul>
+            <li>Real-time stream lifecycle management with clean shutdown paths</li>
+            <li>Structured logs for troubleshooting and auditability</li>
+            <li>Media directories for saved plate crops and annotated frames</li>
+            <li>Config-driven lane setup for different toll plazas or camera layouts</li>
+          </ul>
+        </article>
+      </section>
+
+      <div class="project-cta">
+        <a class="primary-action" href="https://github.com/PawanKrGunjan" target="_blank" rel="noopener">Open GitHub Profile</a>
+        <a class="secondary-action" href="blogs.html">Back to projects</a>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <span>© 2026 <span class="logo-g">G</span>unjan</span>
+      <div class="site-footer-links" aria-label="Social links">
+        <a class="social-link site-footer-link" href="https://www.linkedin.com/in/pawankrgunjan/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <img class="social-logo" src="image/logo/LI-Logo.png" alt="LinkedIn logo" />
+        </a>
+        <a class="social-link site-footer-link" href="https://huggingface.co/PawanKrGunjan" target="_blank" rel="noopener" aria-label="Hugging Face">
+          <img class="social-logo" src="image/logo/huggingface/hf-logo.png" alt="Hugging Face logo" />
+        </a>
+        <a class="social-link site-footer-link" href="https://github.com/PawanKrGunjan" target="_blank" rel="noopener" aria-label="GitHub">
+          <img class="social-logo" src="image/logo/GitHub_Logos/PNG/GitHub_Invertocat_White.png" alt="GitHub logo" />
+        </a>
+        <a class="social-link site-footer-link" href="https://www.kaggle.com/pawankumargunjan" target="_blank" rel="noopener" aria-label="Kaggle">
+          <img class="social-logo" src="image/logo/kaggle/kaggle-logo-transparent-300.png" alt="Kaggle logo" />
+        </a>
+        <a class="social-link site-footer-link" href="https://x.com/" target="_blank" rel="noopener" aria-label="Twitter">
+          <img class="social-logo" src="image/logo/x/logo-white.png" alt="Twitter logo" />
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>

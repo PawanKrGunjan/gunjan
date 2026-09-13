@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Intelligent Voice Bot project by Pawan Kumar Gunjan — an AI voice assistant using speech recognition, Whisper, LLM prompting, and text-to-speech." />
+    <title>Intelligent Voice Bot — Pawan Kumar Gunjan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="index.html" aria-label="Gunjan home">
+        <span class="logo-g">G</span>unjan<span>_</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="blogs.html">Projects</a>
+        <a href="about.html">About</a>
+      </nav>
+    </header>
+
+    <main class="page-shell project-page">
+      <section class="page-intro" aria-labelledby="project-title">
+        <p class="eyebrow">/ / project</p>
+        <h1 id="project-title">Intelligent Voice Bot<span class="cursor" aria-hidden="true"></span></h1>
+        <p>A voice-first conversational assistant that listens to user input, converts speech to text, augments prompts with prior context, and responds with spoken output.</p>
+
+        <div class="project-meta">
+          <div class="meta-item">
+            <span class="meta-label">Focus</span>
+            <span>Voice AI • Conversational systems</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Tools</span>
+            <span>Speech recognition • Whisper • gTTS • LLM prompts</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Repo</span>
+            <a href="https://github.com/PawanKrGunjan/Natural-Language-Processing/tree/main/Chatsbots/Voice%20Bot/Voice%20Bot" target="_blank" rel="noopener">View on GitHub</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-layout">
+        <article class="project-card project-main">
+          <p class="section-label">01 / problem</p>
+          <h2>Making voice interaction feel natural</h2>
+          <p>The goal of this project was to build a voice bot that can listen, understand, and respond in a conversational way. The challenge was not only converting speech to text, but also supplying the model with the right context so that responses felt relevant and coherent.</p>
+          <p>This led to a design where audio input, previous history, and LLM prompting all worked together in one loop.</p>
+        </article>
+
+        <article class="project-card">
+          <p class="section-label">02 / implementation</p>
+          <h3>From audio input to spoken output</h3>
+          <ul>
+            <li>Converted input audio into text using speech recognition and Whisper-based transcription</li>
+            <li>Included prior conversation history in the request to support contextual replies</li>
+            <li>Generated responses using LLM prompting tuned for the assistant task</li>
+            <li>Converted output text back into audio using gTTS</li>
+            <li>Added audio classification logic to detect exit phrases and stop interaction cleanly</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="project-grid">
+        <article class="project-card">
+          <p class="section-label">03 / system value</p>
+          <h3>Useful conversational flow</h3>
+          <p>What stands out in this project is the complete conversation cycle: capturing spoken input, understanding context, generating a response, and returning it in audio. That end-to-end flow is a strong example of applied voice AI design.</p>
+        </article>
+
+        <article class="project-card">
+          <p class="section-label">04 / takeaway</p>
+          <h3>Voice + context + memory</h3>
+          <p>This project shows how important context and interaction design are for voice systems. A bot becomes far more useful when it remembers the conversation, responds appropriately, and knows when to stop.</p>
+        </article>
+      </section>
+
+      <div class="project-cta">
+        <a class="primary-action" href="https://github.com/PawanKrGunjan/Natural-Language-Processing/tree/main/Chatsbots/Voice%20Bot/Voice%20Bot" target="_blank" rel="noopener">Open GitHub Project</a>
+        <a class="secondary-action" href="blogs.html">Back to projects</a>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <span>© 2026 <span class="logo-g">G</span>unjan</span>
+      <div class="site-footer-links" aria-label="Social links">
+        <a class="social-link site-footer-link" href="https://www.linkedin.com/in/pawankrgunjan/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <img class="social-logo" src="image/logo/LI-Logo.png" alt="LinkedIn logo" />
+        </a>
+        <a class="social-link site-footer-link" href="https://huggingface.co/PawanKrGunjan" target="_blank" rel="noopener" aria-label="Hugging Face">
+          <img class="social-logo" src="image/logo/huggingface/hf-logo.png" alt="Hugging Face logo" />
+        </a>
+        <a class="social-link site-footer-link" href="https://github.com/PawanKrGunjan" target="_blank" rel="noopener" aria-label="GitHub">
+          <img class="social-logo" src="image/logo/GitHub_Logos/PNG/GitHub_Invertocat_White.png" alt="GitHub logo" />
+        </a>
+        <a class="social-link site-footer-link" href="https://www.kaggle.com/pawankumargunjan" target="_blank" rel="noopener" aria-label="Kaggle">
+          <img class="social-logo" src="image/logo/kaggle/kaggle-logo-transparent-300.png" alt="Kaggle logo" />
+        </a>
+        <a class="social-link site-footer-link" href="https://x.com/" target="_blank" rel="noopener" aria-label="Twitter">
+          <img class="social-logo" src="image/logo/x/logo-white.png" alt="Twitter logo" />
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="All posts by Gunjan about technology, code, and systems." />
-    <title>Blogs — Gunjan</title>
+    <meta name="description" content="Projects and experiments by Pawan Kumar Gunjan in AI/ML, Generative AI, NLP, and Computer Vision." />
+    <title>Projects — Pawan Kumar Gunjan</title>
     <link rel="preconnect" href="https://googleapis.com" />
     <link rel="preconnect" href="https://gstatic.com" crossorigin />
     <link href="https://googleapis.com/css2?family=DM+Mono:wght@400;500&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
@@ -16,45 +16,96 @@
         <span class="logo-g">G</span>unjan<span>_</span>
       </a>
       <nav aria-label="Main navigation">
-        <a class="active" href="blogs.html">Blogs</a>
+        <a class="active" href="blogs.html">Projects</a>
         <a href="about.html">About</a>
       </nav>
     </header>
 
     <main class="page-shell">
       <section class="page-intro" aria-labelledby="blogs-title">
-        <p class="eyebrow">/ / field notes &amp; working ideas</p>
-        <h1 id="blogs-title">The blog<span class="cursor" aria-hidden="true"></span></h1>
-        <p>Notes on software, systems, and the small decisions that shape the things we build.</p>
+        <p class="eyebrow">/ / projects &amp; experiments</p>
+        <h1 id="blogs-title">Selected work<span class="cursor" aria-hidden="true"></span></h1>
+        <p>A collection of AI/ML, NLP, computer vision, and agentic systems built to solve real problems and turn ideas into usable products.</p>
       </section>
 
-      <section class="blog-list" aria-label="All blog posts">
-        <a class="blog-card featured-card" id="abstractions" href="#abstractions">
-          <div class="post-topline"><span>01 / featured</span><span class="tag">#abstractions</span></div>
-          <h2>How I think about abstractions</h2>
-          <p>Every abstraction is a bet. You're wagering that the complexity you're hiding will stay hidden — that the model will hold. Most of the time, it does. Until it doesn't.</p>
-          <div class="post-meta"><span>Aug 28, 2026 &nbsp;·&nbsp; 7 min read</span><span class="read-link">Coming soon <span>→</span></span></div>
+      <section class="blog-list" aria-label="Project list">
+        <a class="blog-card featured-card" href="investment-agent.html">
+          <div class="post-topline"><span>01 / featured</span><span class="tag">#agentic-ai</span></div>
+          <h2>Investment Agent</h2>
+          <p>An AI stock research agent that maps natural-language investment queries to NSE equities, retrieves live quotes and news, and produces structured output for both humans and tools.</p>
+          <div class="post-meta"><span>LangGraph • DuckDuckGo • NSE data</span><span class="read-link">Open project <span>→</span></span></div>
         </a>
 
-        <a class="blog-card" id="systems" href="#systems">
-          <div class="post-topline"><span>02 / systems</span><span class="tag">#systems</span></div>
-          <h2>Small systems, meaningful constraints</h2>
-          <p>A few notes on building things that remain understandable as they grow, and why constraints are often a creative advantage.</p>
-          <div class="post-meta"><span>Sep 01, 2026 &nbsp;·&nbsp; 5 min read</span><span class="read-link">Coming soon <span>→</span></span></div>
+        <a class="blog-card" href="anpr.html">
+          <div class="post-topline"><span>02 / computer vision</span><span class="tag">#anpr</span></div>
+          <h2>ANPR System Design</h2>
+          <p>A full technical blog covering YOLO-based detection, TrOCR recognition, FastAPI stream orchestration, and database-backed live vehicle analytics.</p>
+          <div class="post-meta"><span>YOLO • TrOCR • FastAPI • Real-time vision</span><span class="read-link">Open project <span>→</span></span></div>
         </a>
 
-        <a class="blog-card" id="craft" href="#craft">
-          <div class="post-topline"><span>03 / craft</span><span class="tag">#developer-life</span></div>
-          <h2>The quiet craft of useful software</h2>
-          <p>Good tools disappear into the work. What makes an interface feel calm, clear, and worth returning to?</p>
-          <div class="post-meta"><span>Sep 06, 2026 &nbsp;·&nbsp; 6 min read</span><span class="read-link">Coming soon <span>→</span></span></div>
+        <a class="blog-card" href="voice-bot.html">
+          <div class="post-topline"><span>03 / voice ai</span><span class="tag">#voice-bot</span></div>
+          <h2>Intelligent Voice Bot</h2>
+          <p>A conversational voice workflow that converts audio to text, sends context-aware prompts to an LLM, and returns spoken output using text-to-speech.</p>
+          <div class="post-meta"><span>Speech recognition • Whisper • TTS</span><span class="read-link">Open project <span>→</span></span></div>
+        </a>
+
+        <a class="blog-card" href="machine-translation.html">
+          <div class="post-topline"><span>04 / translation</span><span class="tag">#nmt</span></div>
+          <h2>Machine Translation App</h2>
+          <p>Hindi-English and English-Hindi translation workflows powered by fine-tuned Opus-MT models, packaged into an accessible translation experience.</p>
+          <div class="post-meta"><span>Fine-tuning • NLP • bilingual models</span><span class="read-link">Open project <span>→</span></span></div>
+        </a>
+
+        <a class="blog-card" href="audio.html">
+          <div class="post-topline"><span>05 / audio</span><span class="tag">#audio-processing</span></div>
+          <h2>Audio Processing Work</h2>
+          <p>Audio-focused NLP workflows for transcription, sound-based interaction, and end-to-end pipeline experimentation with speech-aware applications.</p>
+          <div class="post-meta"><span>Audio pipelines • speech tools • experimentation</span><span class="read-link">Open project <span>→</span></span></div>
+        </a>
+
+        <a class="blog-card" href="ecg-signal-classification.html">
+          <div class="post-topline"><span>06 / health ai</span><span class="tag">#computer-vision</span></div>
+          <h2>ECG Signal Classification</h2>
+          <p>A signal classification project focused on ECG waveform analysis, pattern detection, and health-related AI inference using computer vision and signal processing techniques.</p>
+          <div class="post-meta"><span>Signal classification • health AI • ML pipelines</span><span class="read-link">Open project <span>→</span></span></div>
+        </a>
+
+        <a class="blog-card" href="https://github.com/PawanKrGunjan" target="_blank" rel="noopener">
+          <div class="post-topline"><span>07 / experiments</span><span class="tag">#small-projects</span></div>
+          <h2>Prompt Engineering Sandbox</h2>
+          <p>Smaller-scale experiments around prompt design, structured output handling, tool calling patterns, and evaluation-driven iteration for practical GenAI workflows.</p>
+          <div class="post-meta"><span>Prompt design • evaluation • GenAI</span><span class="read-link">Open GitHub <span>→</span></span></div>
+        </a>
+
+        <a class="blog-card" href="https://github.com/PawanKrGunjan" target="_blank" rel="noopener">
+          <div class="post-topline"><span>08 / search systems</span><span class="tag">#rag</span></div>
+          <h2>RAG &amp; Vector Search Experiments</h2>
+          <p>Prototype work on retrieval pipelines, semantic search, embedding-based matching, and lightweight knowledge access systems for domain-specific question answering.</p>
+          <div class="post-meta"><span>RAG • embeddings • search workflows</span><span class="read-link">Open GitHub <span>→</span></span></div>
         </a>
       </section>
     </main>
 
     <footer class="site-footer">
       <span>© 2026 <span class="logo-g">G</span>unjan</span>
-      <a href="mailto:hello@thegunjan.in">hello@thegunjan.in</a>
+      <div class="site-footer-links" aria-label="Social links">
+        <a class="social-link site-footer-link" href="https://www.linkedin.com/in/pawankrgunjan/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <img class="social-logo" src="image/logo/LI-Logo.png" alt="LinkedIn logo" />
+        </a>
+        <a class="social-link site-footer-link" href="https://huggingface.co/PawanKrGunjan" target="_blank" rel="noopener" aria-label="Hugging Face">
+          <img class="social-logo" src="image/logo/huggingface/hf-logo.png" alt="Hugging Face logo" />
+        </a>
+        <a class="social-link site-footer-link" href="https://github.com/PawanKrGunjan" target="_blank" rel="noopener" aria-label="GitHub">
+          <img class="social-logo" src="image/logo/GitHub_Logos/PNG/GitHub_Invertocat_White.png" alt="GitHub logo" />
+        </a>
+        <a class="social-link site-footer-link" href="https://www.kaggle.com/pawankumargunjan" target="_blank" rel="noopener" aria-label="Kaggle">
+          <img class="social-logo" src="image/logo/kaggle/kaggle-logo-transparent-300.png" alt="Kaggle logo" />
+        </a>
+        <a class="social-link site-footer-link" href="https://x.com/" target="_blank" rel="noopener" aria-label="Twitter">
+          <img class="social-logo" src="image/logo/x/logo-white.png" alt="Twitter logo" />
+        </a>
+      </div>
     </footer>
   </body>
 </html>
